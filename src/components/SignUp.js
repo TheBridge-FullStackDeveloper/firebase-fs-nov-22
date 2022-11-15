@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "../services/firebase";
 
@@ -26,7 +27,7 @@ const SignUp = () => {
         <input onChange={onChange} type="text" name="username" />
         <label htmlFor="password">password</label>
         <input onChange={onChange} type="password" name="password" />
-        <input type="submit" />
+        <Button type="submit" label="Submit" primary />,
       </form>
     </div>
   );
