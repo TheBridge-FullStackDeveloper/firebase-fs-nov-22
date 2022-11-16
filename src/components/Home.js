@@ -10,7 +10,7 @@ const Home = ({ user }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   if (!user) {
-    return <Navigate to="/login" replace={true} />
+    return <Navigate to="/login" replace={true} />;
   }
 
   const handleMenu = (event) => {
@@ -24,36 +24,37 @@ const Home = ({ user }) => {
   return (
     <div>
       <AppBar position="static">
-        <Toolbar>Songs</Toolbar>
-
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          onClick={handleMenu}
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        {user.displayName || user.email}
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={() => auth.signOut()}>Sign Out</MenuItem>
-        </Menu>
+        <Toolbar>
+          Songs
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          {user.displayName || user.email}
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={() => auth.signOut()}>Sign Out</MenuItem>
+          </Menu>
+        </Toolbar>
       </AppBar>
       <br />
       <Songs />

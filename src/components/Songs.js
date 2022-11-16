@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, TextField } from "@mui/material";
+import { Box, Button, Card, CardContent, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import db from "../services/firestore";
 
@@ -52,32 +52,46 @@ const Songs = () => {
   }, []);
 
   return (
-    <div>
-      <TextField
-        onChange={onChange}
-        id="outlined-basic"
-        label="title"
-        variant="outlined"
-        name="title"
-      />
-      <TextField
-        onChange={onChange}
-        id="outlined-basic"
-        label="artist"
-        variant="outlined"
-        name="artist"
-      />
-      <TextField
-        onChange={onChange}
-        id="outlined-basic"
-        label="year"
-        type="number"
-        variant="outlined"
-        name="year"
-      />
-
-      <Button onClick={createSong}>Create</Button>
-      <ul style={{ display: "flex", justifyContent: "space-around"}}>
+    <Box display="flex">
+      <Box
+        sx={{ width: 348, height: 289 }}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-around"
+        flexDirection="column"
+      >
+        <TextField
+          onChange={onChange}
+          id="outlined-basic"
+          label="title"
+          variant="outlined"
+          name="title"
+        />
+        <TextField
+          onChange={onChange}
+          id="outlined-basic"
+          label="artist"
+          variant="outlined"
+          name="artist"
+        />
+        <TextField
+          onChange={onChange}
+          id="outlined-basic"
+          label="year"
+          type="number"
+          variant="outlined"
+          name="year"
+        />
+        <Button onClick={createSong}>Create</Button>
+      </Box>
+      <ul
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          gap: 32,
+          listStyle: "none",
+        }}
+      >
         {songs.map((song, i) => (
           <Card key={i} style={{ padding: 14, maxWidth: 200 }}>
             <CardContent>
@@ -102,7 +116,7 @@ const Songs = () => {
           </Card>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 };
 
