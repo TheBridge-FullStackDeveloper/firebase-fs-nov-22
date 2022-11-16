@@ -1,17 +1,17 @@
-import {
-  AppBar,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-} from "@mui/material";
+import { AppBar, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../services/firebase";
 import Songs from "./Songs";
 
 const Home = ({ user }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+
+  if (!user) {
+    return <Navigate to="/login" replace={true} />
+  }
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);

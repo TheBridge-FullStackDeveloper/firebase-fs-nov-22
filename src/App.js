@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Home from "./components/Home";
@@ -17,14 +18,11 @@ function App() {
 
   return (
     <div className="App">
-      {!user ? (
-        <>
-          SignUp: <SignUp />
-          SignIn: <SignIn />
-        </>
-      ) : (
-        <Home user={user} />
-      )}
+      <Routes>
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/" element={<Home user={user} />} />
+      </Routes>
     </div>
   );
 }
